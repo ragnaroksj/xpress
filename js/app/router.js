@@ -13,7 +13,7 @@ define([
         "get/:mainCategory/:subCategory" : "loadCategory",
         "video/:id" : "reloadVideo",
         "filter/:key" : "filterMap",
-        "wp-content/themes/xtheme/pagetemplates/contact.php" : "contactRender",
+        "wp-content/themes/xpress/pagetemplates/contact.php" : "contactRender",
         "*action" : "defaultRouter"
       },
 

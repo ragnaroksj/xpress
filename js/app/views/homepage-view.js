@@ -58,7 +58,7 @@ define([
 
     loadHeadlineData : function(dateIndex){
       $.ajax({
-        url : "wp-content/themes/xtheme/homepage/homeblocks/headline.json",
+        url : "wp-content/themes/xpress/homepage/homeblocks/headline.json",
         dataType : "json"
       }).done(function(data){
         var headlineId = dateIndex.split("T")[0].split("-").join("");
@@ -85,7 +85,7 @@ define([
     fetchData : function(){
       var self = this;
       $.ajax({
-        url : "wp-content/themes/xtheme/homepage/homeblocks/phin.json",
+        url : "wp-content/themes/xpress/homepage/homeblocks/phin.json",
         dataType : "json"
       }).done(function(data){
         $.each(data,function(key,value){

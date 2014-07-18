@@ -16,7 +16,7 @@ define([
 		  $("#jquery_jplayer_1").jPlayer({
         	ready: function () {
           		$(this).jPlayer("setMedia", {
-            		mp3: "http://dev.xpress.com/wp-content/themes/xtheme/res/music/ant.mp3",
+            		mp3: "http://dev.xpress.com/wp-content/themes/xpress/res/music/ant.mp3",
             		oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
           		}).jPlayer("play",parseInt($thisObj.getCookie("starttime")));
         	},

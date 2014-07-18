@@ -3,11 +3,11 @@
 		"id" : "manhattanhenge",
 		"title" : "manhattanhenge",
 		"image" : [ 
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh1.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh2.jpg", 
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh3.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh4.jpg", 
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh5.jpg" 
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mh1.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mh2.jpg", 
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mh3.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mh4.jpg", 
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mh5.jpg" 
 		],
 		"location" : "turdo city place",
 		"coordinate" : "0,0",
@@ -21,11 +21,11 @@
 		"id" : "manhattanfortress",
 		"title" : "manhattanfortress",
 		"image" : [
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf1.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf2.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf3.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf4.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf5.jpg"
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mf1.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mf2.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mf3.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mf4.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/ny/mf5.jpg"
 		],
 		"location" : "exchange place",
 		"coordinate" : "0,0",
@@ -39,11 +39,11 @@
 		"id" : "faslekiva",
 		"title" : "False Kiva",
 		"image" : [
-			"wp-content/themes/xtheme/res/images/homeblocks/np/fk1.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/np/fk2.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/np/fk3.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/np/fk4.jpg",
-			"wp-content/themes/xtheme/res/images/homeblocks/np/fk5.jpg"	
+			"wp-content/themes/xpress/res/images/homeblocks/np/fk1.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/np/fk2.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/np/fk3.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/np/fk4.jpg",
+			"wp-content/themes/xpress/res/images/homeblocks/np/fk5.jpg"	
 		],
 		"location" : "Canyonlands",
 		"coordinate" : "0,0",
