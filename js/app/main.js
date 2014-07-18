@@ -6,7 +6,7 @@ require.config({
   /*Magento BaseUrl*/
   //baseUrl : "/skin/frontend/enterprise/cache/js/app",
   /*wordpress BaseUrl*/
-  baseUrl : "/wp-content/themes/xtheme/js/app",
+  baseUrl : "/wp-content/themes/xpress/js/app",
   paths : {
       "pace" : "lib/pace/pace",
       "underscore" : "lib/underscore",

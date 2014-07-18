@@ -12,7 +12,9 @@
         "pages/blog/xpress",
         "pages/blog/photography",
         "pages/blog/video",
-        "pages/blog/expedition"     
+        "pages/blog/expedition",
+        "pages/blog/me",
+        "pages/blog/contact"     
     ],
     mainConfigFile : './app/main.js',
     wrap: {
