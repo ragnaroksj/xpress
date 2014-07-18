@@ -113,10 +113,10 @@
 	<!--script src="<?php echo get_template_directory_uri(); ?>/js/app/lib/pace/pace.js"></script-->
 	<link href="<?php echo get_template_directory_uri(); ?>/js/app/lib/pace/pace-theme-big-counter.css" rel="stylesheet" />
 	<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"></script>
-	<script data-main="<?php echo get_template_directory_uri(); ?>/js/app/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
-	<!--script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script-->
+	<!--script data-main="<?php echo get_template_directory_uri(); ?>/js/app/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script-->
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/min.js"></script>
 	<!--script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/dist/main.js"></script-->
-	<!--script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/min.js"></script-->
 	
 </head>
 
