@@ -1,0 +1,56 @@
+{
+	"event_1" : {
+		"id" : "manhattanhenge",
+		"title" : "manhattanhenge",
+		"image" : [ 
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh1.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh2.jpg", 
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh3.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh4.jpg", 
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mh5.jpg" 
+		],
+		"location" : "turdo city place",
+		"coordinate" : "0,0",
+		"content" : "Next Manhattanhenge will occure on July. The best place it tudor city place. Be here at least 3 hours ahead or you may not get the best position.",
+		"cat" : "ny",
+		"catname" : "new york",
+		"active" : "active"
+	},
+	
+	"event_2" : {
+		"id" : "manhattanfortress",
+		"title" : "manhattanfortress",
+		"image" : [
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf1.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf2.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf3.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf4.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/ny/mf5.jpg"
+		],
+		"location" : "exchange place",
+		"coordinate" : "0,0",
+		"content" : "When you see the storm approaching to New York before the sunset, do not miss the chance to see the rainbow across the Manhattan. Most of the time, you can see double rainbow in exchange place.",
+		"cat" : "ny",
+		"catname" : "new york",
+		"active" : "active"
+	},
+
+	"event_3" : {
+		"id" : "faslekiva",
+		"title" : "False Kiva",
+		"image" : [
+			"wp-content/themes/xtheme/res/images/homeblocks/np/fk1.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/np/fk2.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/np/fk3.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/np/fk4.jpg",
+			"wp-content/themes/xtheme/res/images/homeblocks/np/fk5.jpg"	
+		],
+		"location" : "Canyonlands",
+		"coordinate" : "0,0",
+		"content" : "False Kiva is unofficial trail. I will update more pics and info about this place next month.",
+		"cat" : "np",
+		"catname" : "national parks",
+		"active" : "inactive"
+	}
+	
+}

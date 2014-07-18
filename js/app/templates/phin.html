@@ -1,0 +1,23 @@
+<div class="phin">
+	<h4 class="title"><%= item.get("title") %></h4>
+	<span class="coordinate"><%= item.get("location") %></span>
+	<div class="img">
+		<div id="slide_<%= item.get('id') %>">
+			<span data-gtm="left" data-rel="prev" class="prev">prev</span>
+			<span data-gtm="right" data-rel="next" class="next">next</span>
+			<div data-rel="container" class="slide-container" >
+				<div class="slide-inner">
+					<% _.each( item.get("image"), function( img ){ %>
+						<img src="<%= img%>" />
+					<% }) %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content"><%= item.get("content") %></div>
+</div>
+
+
+
+			
+				

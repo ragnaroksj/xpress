@@ -1,0 +1,31 @@
+@import "mapspirits.css";
+
+/*
+* $level : 20px ,50px ,100px;
+*
+*/
+@mixin spiritindex($x, $y, $level){
+	background-repeat : no-repeat;
+	background-position : (-($x+1)*$level)px  (-($y+1)*$level)px;
+}
+
+/*sp image*/
+.sp1{ background : url("spirit1.png");}
+
+/*sp position with different level*/
+.sp0050{ @include spiritindex(0,0,50)}
+.sp00100{ @include spiritindex(0,0,100)}.sp01100{ @include spiritindex(0,1,100) }
+
+
+/*map icon spirit*/
+
+
+/*transisition code*/
+.spirit-img{
+	background : url("spirit.png");
+}
+
+.page-loading{
+	@extend .spirit-img;
+	background-position : -450px -50px;
+}

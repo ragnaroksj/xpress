@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>
+  <script type="text/javascript">
+  	/*define testing module*/
+test( "notDeepEqual test", function() {
+var obj = { foo: "bar" };
+equal( obj, { foo: "bla" }, "Different object, same key, different value, not equal" );
+});
+  </script>
+</head>
+<body>
+  <h1 id="qunit-header">QUnit测试</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">测试标记</div>
+</body>
+</html>

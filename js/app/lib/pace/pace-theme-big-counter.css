@@ -1,0 +1,67 @@
+/* This is a compiled file, you should be editing the file in the templates directory */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border-bottom : 1px solid #ccc;
+  background : rgba(255,255,255,0.97);
+  transition : all 1s;
+  -webkit-transition : all 1s;
+  height : 100%;
+}
+
+.pace-bg{
+  background-color : #fff;
+  width : 100%;
+  height : 100%;
+  top : 0px;
+  left : 0px;
+  position : fixed;
+  display: block;
+}
+
+.pace-bg-img{
+  background : url("../../../../css/global/spirits/spirit.png") no-repeat scroll -50px -50px #fff;
+  width : 100px;
+  height : 100px;
+  margin : 15% auto;
+  opacity : 0;
+  margin-bottom : -45px;
+  position : relative;
+}
+
+.pacebg-active{
+  opacity: 1;
+  transition : all 0.4s;
+  -webkit-transition : all 0.4s;
+}
+.pacebg-inactive{
+  opacity : 0;
+  transition : all 0.4s;
+  -webkit-transition : all 0.4s;
+}
+
+.pace.pace-inactive .pace-progress {
+  display: none;
+}
+
+.pace-progress-indicator{
+  position :relative;
+}
+
+.pace .pace-progress:after {
+  display: block;
+  content: attr(data-progress-text);
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  color: #cecece;
+  position : absolute;
+  bottom : 19px;
+  width : 100px;
+  z-index : 999999;
+}

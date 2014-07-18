@@ -1,0 +1,6 @@
+@import url(mapspirits.css);
+.spirit-img, .page-loading {
+  background: url("spirit.png"); }
+
+.page-loading {
+  background-position: -450px -50px; }

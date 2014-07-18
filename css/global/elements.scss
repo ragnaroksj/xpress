@@ -1,0 +1,119 @@
+.jplayer-container{
+		overflow:hidden;
+		position:relative;
+		height:45px;
+		width : 287px;
+		margin : 0 auto;
+		margin-bottom :16px;
+		#jp_container_1{
+			background:none;
+			border:none;
+			.jp-interface{
+				height:45px;
+				background:none;
+				ul.jp-controls{
+					padding:0px;
+					width:45px;
+					height : 45px;
+					position : absolute;
+					li{
+						height : 0px;
+						list-style : none;
+						a{
+							background:url("global/spirits/jplayer.png") no-repeat 4px -97px;
+							display:block;
+							height:20px;
+							width:20px;
+							top : 9px;
+							left : 10px;
+							position : absolute;
+							text-indent : -99999px;
+							&.jp-pause{
+								background-position:4px -119px;
+							}
+						}
+					}
+				}
+				.jp-progress{
+					left:14px;
+					position : absolute;
+					top: 33px;
+					width : 260px;
+					.jp-seek-bar{
+
+						overflow : hidden;
+						cursor : pointer;
+						height : 13px;
+						width : 100%;
+						background:#000;
+						border:1px solid #333;
+						border-left:none;
+						border-right:none;
+						.jp-play-bar{
+						transition : all 0.3s;
+							box-shadow: 0 0 13px 4px #019BE3;
+							height : 13px;
+							background : none repeat scroll 0 0 #019BE3;
+						}
+					}
+				}
+				.jp-volume-bars{
+					left:97px;
+					top:11px;
+					height:20px;
+					width:94px;
+					position:absolute;
+					cursor:pointer;
+					&>div{
+						float:left;
+					}
+					.volume-button{
+						width:10px;
+						height:20px;
+						background:url("global/spirits/jplayer.png") no-repeat;
+						display:block !important;
+					}
+					.jp-volume-bar{
+						margin-left:5px;
+						margin-top:5px;
+						position:static;
+						width:0px;
+						height : 8px;
+						background:#000;
+						border : 1px solid #333;
+						overflow : hidden;
+					}
+					.jp-volume-bar-value{
+						transition : all 0.3s;
+						width:0px;
+						display:block;
+						height : 8px;
+						background : #019be3;
+					}
+					.volume-amp-button{
+						@extend .volume-button;
+						background-position:0px -40px;
+						margin-left:3px;
+						width:18px;
+					}
+				}
+				.jp-time-holder{
+					left:42px;
+					top:14px;
+					position : absolute;
+					.jp-duration{
+						width:auto;
+						font-family:"Eurostile";
+						font-style:normal;
+						display : none;
+					}
+					.jp-current-time{
+						width:auto;
+						font-family:"Eurostile";
+						font-style:normal;
+						margin-right:5px;
+					}
+				}
+			}
+		}
+	}
