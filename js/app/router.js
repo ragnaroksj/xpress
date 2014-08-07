@@ -14,6 +14,7 @@ define([
         "video/:id" : "reloadVideo",
         "filter/:key" : "filterMap",
         "wp-content/themes/xpress/pagetemplates/contact.php" : "contactRender",
+        "wp-content/themes/xpress/pagetemplates/experiment.html" : "experimentLoad",
         "*action" : "defaultRouter"
       },
 
@@ -39,6 +40,10 @@ define([
             Expedition.map.filterMarker( key, Expedition.map);
           });
         
+      },
+
+      experimentLoad : function(){
+        require( ["pages/blog/experiment"] );
       },
 
       contactRender : function(){

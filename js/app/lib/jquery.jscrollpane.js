@@ -285,8 +285,7 @@
             appendArrows(verticalTrack, settings.verticalArrowPositions, arrowUp, arrowDown);
           }
 
-          /* JZ :: Fix for keeping the drag in bounds if there is margin on the track*/
-          verticalTrackHeight = verticalTrack.innerHeight();
+          verticalTrackHeight = paneHeight;
           container.find('>.jspVerticalBar>.jspCap:visible,>.jspVerticalBar>.jspArrow').each(
             function()
             {
@@ -789,7 +788,7 @@
 
       function scrollToY(destY, animate)
       {
-        var percentScrolled = destY / (contentHeight - verticalTrackHeight);
+        var percentScrolled = destY / (contentHeight - paneHeight);
         positionDragY(percentScrolled * dragMaxY, animate);
       }
 
@@ -1447,3 +1446,4 @@
   };
 
 })(jQuery,this);
+

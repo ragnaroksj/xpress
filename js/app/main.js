@@ -29,14 +29,17 @@ require.config({
       "spin" : "lib/spin",
       "modernizr" : "lib/modernizr-2.0.6",
       "maplace" : "lib/maplace",
+      "handlebar" : "lib/handlebars-v1.3.0",
       /*date and time */
       "date" : "lib/date",
       "moment" : "lib/moment",
       "jquery.imageGallery" : "modules/imageGallery",
       "jquery.simplesldier" : "modules/simpleslider",
       "vimeoSimpleApi" : "modules/vimeoSimpleApi",
-      "jplayer" : "lib/jplayer/"
-      /*"googleMap" : "async!http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"*/
+      "jplayer" : "lib/jplayer/",
+      "d3" : "lib/d3",
+      "jquery.postmessage" : "lib/jquery.ba-postmessage",
+      "googleMap" : "async!http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"
   },
 
   shim : {
@@ -85,13 +88,18 @@ require.config({
       deps : ["jquery", "lib/jquery.countdown.plugin"]
     },
     'maplace' : {
-      deps : ["jquery", "async!http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"]
+      //deps : ["jquery", "async!http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"]
+      deps : ["jquery", "googleMap"]
+   
     },
     'jquery.imageGallery' : {
       deps : ["jquery"]
     },
     'vimeoSimpleApi' : {
       deps : ["jquery", "jquery.pubsub"]
+    },
+    'jquery.postmessage' : {
+      deps : ["jquery"]
     }
   }
 

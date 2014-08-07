@@ -177,7 +177,13 @@ define([
         return {
             start : function(args){  
                 _private._init(args);
+            },
+            /*qunit testing*/
+            merge : function(testOptions){
+                _private._setData(testOptions);
+                return _data;
             }
+
         }
     }());   
   
