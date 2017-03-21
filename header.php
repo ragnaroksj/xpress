@@ -116,22 +116,28 @@
 	<script data-main="<?php echo get_template_directory_uri(); ?>/js/app/main" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
 	<!--script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/require.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/min.js"></script-->
-	
+	<script type="text/javascript">
+		var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>"
+	</script>
 </head>
 
 <body <?php body_class();  ?> >
 	
 	<div id="wrapper" class="full-page-layout">
 
-		<div id="top-header" class="standard-page-layout">
-
-			<header id="header" role="banner" class="lf">
-				<h1><a class="darkgrey" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			</header>
-			
-			<nav id="main-nav" role="navigation" class="nav rf">
-				<?php wp_nav_menu( array('menu' => 'primary') ); ?>
-			</nav>
+		<div id="top-header" class="top-header">
+			<div class="standard-page-layout header-container">
+				<header id="header" role="banner" class="lf">
+					<!--h1><a class="darkgrey" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1-->
+					<a class="logo-a" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+						<img class="logo-img" src="<?php echo get_template_directory_uri(); ?>/images/src/logo_a.png" />
+					</a>
+				</header>
+				
+				<nav id="main-nav" role="navigation" class="nav rf">
+					<?php wp_nav_menu( array('menu' => 'primary') ); ?>
+				</nav>
+			</div>
 		</div>
 		
 		<!--div id="sub-nav-contain" class="nav full-page-layout"-->
@@ -141,23 +147,30 @@
 						$cat_thumbnail = $cat_img->url;
 					}
 				?>
-			<!--div class="sub-nav-bg full-page-layout" ><img src="<?php if(has_category_thumbnail(7)) echo $cat_thumbnail; ?>" /></div-->
+			<div class="sub-nav-bg full-page-layout" ><img data-index="0" src="<?php if(has_category_thumbnail(7)) echo $cat_thumbnail; ?>" /></div>
 			<nav id="sub-nav" role="navigation" class="nav full-page-layout">
-				
 				<div class="full-page-layout">
-				<ul class="photography-nav">
+				<ul class="photography-nav" data-bg="<?php echo $cat_thumbnail; ?>">
 					<?php //wp_list_categories( "hide_empty=0&child_of=7&title_li=" ); ?>
 					<?php $categories = get_categories( array("hide_empty"=>0,"child_of"=>7) );?>
 					<?php foreach( $categories as $category): ?>
-						<li class="square-item-array" ><?php echo get_category_first_post($category->cat_ID);  ?>							
-							<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link( $category->cat_ID )?>"><?php echo $category->name; ?></a>
+						<li class="square-item-array" ><?php echo get_category_first_post($category->cat_ID);  ?>								
+							<a title="<?php echo $category->name; ?>" href="<?php echo get_category_link( $category->cat_ID )?>">
+								<?php echo $category->name; ?>
+							</a>
 						</li>
 					<?php endforeach; ?>
 				</ul>
 				</div>
 
 				<div class="full-page-layout">
-				<ul class="video-nav">
+				<?php 
+					if(has_category_thumbnail(8)){
+						$cat_img = get_the_category_data(8);
+						$cat_thumbnail = $cat_img->url;
+					}
+				?>
+				<ul class="video-nav" data-bg="<?php echo $cat_thumbnail; ?>">
 					<?php $posts = fetch_page_posts(8)->posts ?>
 					<?php if(isset($posts)):?>
 						<?php foreach($posts as $post): ?>
@@ -188,18 +201,24 @@
 				</div>
 
 				<div class="full-page-layout">
-				<ul class="expedition-nav">
+				<?php 
+					if(has_category_thumbnail(9)){
+						$cat_img = get_the_category_data(9);
+						$cat_thumbnail = $cat_img->url;
+					}
+				?>
+				<ul class="expedition-nav" data-bg="<?php echo $cat_thumbnail; ?>">
 					
-						<?php wp_list_categories( "hide_empty=0&child_of=7&title_li=" ); ?>
+						<?php wp_list_categories( "hide_empty=0&child_of=9&title_li=" ); ?>
 					
 				</ul>
 				</div>
 
 				<div class="full-page-layout">
-					<div class="me-nav">
+					<div class="me-nav" data-bg="<?php echo get_site_url(); ?>/wp-content/uploads/2015/03/DSC1314-e1427743423835.jpg">
 						Hi, everyone! This is Jun(Jim) Su. Welcome to visit my personal website. If you have any question or idea about my work or website. Please feel me to contact me.
 					</div>
 				</div>
 			</nav>
-			<div class="full-page-layout fullline"></div>
+			<!--div class="full-page-layout fullline"></div-->
 		<!--/div-->

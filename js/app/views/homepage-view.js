@@ -1,10 +1,13 @@
 define([
   "jquery",
   "jquery.countdown",
-  "jquery.simplesldier", 
+  "jquery.simplesldier",
+  "jplayer/jplayerWithCookie",
+  "jquery.jscrollpane", 
   "text!templates/phin.html",
-  "text!../../../homepage/homeblocks/headline.html"
-  ],function($,countdown, SimpleSlide,PhinHtml, HeadLine){
+  "text!../../../homepage/homeblocks/headline.html",
+  "text!templates/story.html"
+  ],function($,countdown, SimpleSlide, Jplayerinit,jScrollPane,PhinHtml, HeadLine, StoryHtml){
   
   var homepageView  =  homepageView ||{};
 
@@ -28,10 +31,9 @@ define([
         onExpiry : self.renderHeadline.call(self, endTime)
       });
 
-      setTimeout(function(){
+      /*setTimeout(function(){
         self.$el.css({"height" : "420px" });
-        $(".homeblocks").css({"top" : "-56px"});
-      },1500);
+      },1500);*/
     },
 
     renderHeadline : function(dateIndex){
@@ -69,6 +71,103 @@ define([
 
   });
 
+  homepageView.storyView = Backbone.View.extend({
+    events : {
+      "click .story-nav-item" : "filterItem",
+      //"click .story-more" : "loadNewStory",
+    },
+
+    filterItem : function(e){
+      var self = this;
+      var thisTarget = $(e.currentTarget); 
+      var filter = thisTarget.data("filter");
+      $(".story-nav-item").each(function(){
+        $(this).removeClass("active-tab");
+      });
+      thisTarget.addClass("active-tab");
+
+      $(".story-listitem-container").each(function(){
+        var filterNum = $(this).data("filter-num").split(",");
+        if( _.indexOf(filterNum, filter.toString()) != -1 ){
+          $(this).addClass("active-content");
+          $(this).removeClass("inactive-content");
+        }else{
+          $(this).addClass("inactive-content");
+          $(this).removeClass("active-content");
+        }
+      });
+    },
+
+    loadNewStory : function(e){
+      var self = this;
+      var currTag = $(e.currentTarget);
+      var parentC = currTag.parents(".story-listitem-container");
+      var id = currTag.data("source");
+
+      if( $(".story-telling").css("display") === "none" ){
+
+        $.ajax({
+          url: ajaxurl,
+          type: 'POST',
+          dataType: "json",
+          data: {
+            'action' : 'load_content',
+            'id': id 
+          },
+        })
+        .done(function(data) {
+          //parentC.find('.story-telling-content').html(data);
+          //parentC.find('.story-telling').slideDown();
+          //currTag.text("Show Less");
+          
+          $(".story-telling").html(  _.template(StoryHtml, {item : data }) ) ;
+          $(".story-telling").fadeIn();
+          $(".story-telling-content").css("height", $(window).height() - 160 + "px");
+          $(".story-telling-content").jScrollPane();
+          $("body").addClass("story-open");
+          
+          Jplayerinit.jumpPlay( RSJ.fullurl+"/"+$(".music-id-"+currTag.data("bgmusic")).data("src"), currTag.data("bgmusic") );
+          self.render();
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+        });
+
+      //}else{
+        //parentC.find(".story-telling").slideUp(function(){
+          //currTag.text("Read More");
+        //});
+      //}
+      }
+    },
+
+    render : function(){
+      new homepageView.storytelling({ el : ".story-telling" });  
+      //this.runAnimation();
+    },
+
+    
+
+  });
+
+  homepageView.storytelling = Backbone.View.extend({
+    
+    events : {
+      "click .close-btn"  : "endStory",  
+    },
+
+    endStory : function(){
+      //this.stopMusic
+      this.$el.fadeOut(function(){
+        $(this).children().remove();
+        $("body").removeClass("story-open");
+      });
+    }
+
+  });
+
   homepageView.homeBlockView = Backbone.View.extend({
     
     events : {
@@ -76,10 +175,10 @@ define([
     },
 
     initialize : function(){
-      this.fetchData();
-      this.collection.on("change:active",function(){
-        this.render(1);
-      },this);
+      //this.fetchData();
+      //this.collection.on("change:active",function(){
+        //this.render(1);
+      //},this);
     },
 
     fetchData : function(){

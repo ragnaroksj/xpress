@@ -2040,7 +2040,7 @@ String.prototype.queryStringToJSON = String.prototype.queryStringToJSON || funct
 				 * The hostname our application is using.
 				 * For production use, you want to ensure this has been set.
 				 */
-				root_url: 'http://dev.xpress.com',
+				root_url: 'http://dev.rblog.com',
 				/**
 				 * The base url our application is using.
 				 * For production use, you want to ensure this has been set.

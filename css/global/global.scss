@@ -17,15 +17,31 @@
 	padding-left : 10px * $l;	
 }
 
+@mixin transform($value){
+	-webkit-transform : $value;
+	-moz-transform : $value;
+	-ms-transform : $value;
+	-o-transform : $value;
+	transform :  $value;
+}
+
+@mixin transition($value, $time){
+	-webkit-transition : $value $time;
+	-moz-transition : $value $time;
+	-ms-transition : $value $time;
+	-o-transition : $value $time;
+	transition :  $value $time;
+}
+
 /*
 * variable
 */
 /*color*/
 .darkgrey{color:rgba(87,87,87,1);}$grey:#aeaeae;$orangeyellow:#eaa011;$dark:#343434;$darkgrey:#575757;$textColor:#656565;$linkHoverColor:#787878;$linkColor:#aaa;$errorColor:#FF3636;
 /*layout*/
-.lf{float:left;}.rf{float:right;}.clf{content:" ";display:block;clear:both;}.fullline{border-top:1px solid #ccc;}.linkactive{color:$orangeyellow;transition:all 0.8s;}
+.lf{float:left;}.rf{float:right;}.clf{content:" ";display:block;clear:both;}.fullline{border-top:1px solid #ccc;}.linkactive{color:$orangeyellow;transition:all 0.8s;}.lfm{@extend .lf;margin-right:30px;}.rfm{@extend .rf;margin-left:30px;}.hrm{border:1px dashed #ccc;margin-bottom:40px;}
 /*font*/
-.navHel{font-family:"HelveticaNeueLTPro35Thin";text-transform:uppercase;}
+.navHel{font-family:"HelveticaNeueLTStd-Roman";text-transform:uppercase;}
 
 /*
 * page global settings
@@ -42,12 +58,23 @@
 .standard-page-layout{
 	max-width : 960px;
 	margin : 0 auto;
+	width : 100%;
 	&:after{
 		@extend .clf;
 	}
 	&:before{
 		@extend .clf;
 	}	
+}
+.clearfix{
+	&:after, &:before{
+		content : "";
+		display : table;
+	}
+	&:after{
+		clear : both;
+	}
+	zoom : 1;
 }
 .square-item-array{
 	width : 140px;
@@ -75,14 +102,34 @@
 		right : 8%;
 	}
 	&.close{
-		right :0px;
-		top : 0px;
 		font-size : 30px;
+		z-index : 999999;
+		display : none;
 	}
 }
 
 .error{
 	color : $errorColor;
 	letter-spacing : 1px;
+}
+
+.active-tab{
+	color : $orangeyellow;
+	background : #222;
+}
+
+.active-content{
+	max-height : 300px;
+	opacity : 1;
+	overflow : hidden;
+	@include transition(all, 1s);
+}
+
+.inactive-content{
+	max-height : 0px;
+	opacity : 1;
+	overflow : hidden;
+	padding : 0 !important;
+	@include transition(all, 1s);
 }
 

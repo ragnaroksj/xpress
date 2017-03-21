@@ -1,6 +1,8 @@
-define([
-'jquery'
-], function ($) {
+(function(root, factory){
+    if( typeof exports === "object" ) module.exports = factory();
+    else if( typeof define === "function" && define.amd) define(factory);
+    else root.Backtotop = factory();
+}(this,function(){
 
     "use strict";
 
@@ -188,5 +190,5 @@ define([
     }());   
   
     return slide;
-});
+}));
     

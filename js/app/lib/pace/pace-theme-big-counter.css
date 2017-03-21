@@ -20,16 +20,28 @@
   left : 0px;
   position : fixed;
   display: block;
+  z-index: 9999999;
 }
 
 .pace-bg-img{
-  background : url("../../../../css/global/spirits/spirit.png") no-repeat scroll -50px -50px #fff;
+  background : url("../../../../css/global/spirits/spirit.png") no-repeat scroll  #fff;
   width : 100px;
   height : 100px;
   margin : 15% auto;
   opacity : 0;
   margin-bottom : -45px;
   position : relative;
+  background-position : -50px -50px;
+}
+
+.pace-bg-img-1{
+  background-position : -50px -50px;
+}
+.pace-bg-img.pace-bg-img-2{
+  background-position : -143px -50px;
+}
+.pace-bg-img.pace-bg-img-3{
+  background-position : -234px -50px;
 }
 
 .pacebg-active{

@@ -13,15 +13,25 @@ define([
 
     jPlayerInit : function(){
       var $thisObj = this._construct();
+      var defaultMusic = "";
+      if( $thisObj.getCookie("musicId") != "" ){
+        defaultMusic = RSJ.fullurl + '/' + $(".music-id-"+ $thisObj.getCookie("musicId") ).data("src");
+        $(".music-id-"+ $thisObj.getCookie("musicId") ).addClass("current-music");
+      }else{
+        defaultMusic = RSJ.fullurl + '/' + $(".playlist-item").eq(0).data("src");
+        $(".playlist-item").eq(0).addClass("current-music");
+      }
 		  $("#jquery_jplayer_1").jPlayer({
         	ready: function () {
           		$(this).jPlayer("setMedia", {
-            		mp3: "http://dev.xpress.com/wp-content/themes/xpress/res/music/ant.mp3",
-            		oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+            		mp3: defaultMusic
+            		//oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
           		}).jPlayer("play",parseInt($thisObj.getCookie("starttime")));
         	},
-        	supplied: "mp3, oga"
+        	supplied: "mp3"
       });
+      
+      $thisObj.setCookie("musicId",$(".current-music").data("id"),1);
 
       /*set default configuration*/
       if($thisObj.getCookie("play") == 1 ){
@@ -65,6 +75,8 @@ define([
             })
             .bind($.jPlayer.event.ended,function(event){
               $thisObj.setCookie("starttime",0);
+              $thisObj.setCookie("play",1,1);
+              $thisObj.playNext();
             });
 
 
@@ -103,6 +115,34 @@ define([
             $(".volume-amp-button").css("background-position","0px -20px");
           }
       });
+    },
+
+    /*setNext&Previous*/
+    playNext : function(){
+      if( $(".current-music").next().length !=0 ){
+        this.jumpPlay( RSJ.fullurl + "/" + $(".current-music").next().data("src"),  $(".current-music").next().data("id") );
+      }else{
+        this.jumpPlay(  RSJ.fullurl + "/" + $(".playlist-item").eq(0).data("src"),  $(".playlist-item").eq(0).data("id") );
+      }
+    }, 
+
+    playPrev : function(){
+      if( $(".current-music").prev().length !=0 ){
+        this.jumpPlay( RSJ.fullurl + "/" + $(".current-music").prev().data("src"),  $(".current-music").prev().data("id") );
+      }else{
+        this.jumpPlay( RSJ.fullurl + "/" + $(".playlist-item").eq( $(".playlist-item").length-1 ).data("src"),  $(".playlist-item").eq($(".playlist-item").length-1).data("id") );
+      }
+    },
+
+    jumpPlay : function(url,id){
+      if( this.getCookie("play") == 1 ){
+        $("#jquery_jplayer_1").jPlayer("setMedia",{
+          mp3 : url
+        }).jPlayer("play");
+        $(".current-music").removeClass("current-music");
+        $(".music-id-"+id).addClass("current-music");
+        this.setCookie("musicId",$(".current-music").data("id"),1);
+      }
     },
 
     /*play=1:0,volume=0~1,startime*/

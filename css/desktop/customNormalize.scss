@@ -5,19 +5,22 @@ html,body{
 }
 
 #wrapper{
+	display : flex;
 	min-height : 100%;
-	position : relative;
+	flex-direction : column;
+	/*position : relative;*/
 }
 
 .container{
 	/*padding-bottom:260px;  Height of the footer element */
+	flex : 1;
 }
 
 #footer{
-	height:220px;
+	/*height:220px;
 	position:absolute;
-	bottom:-109px;
-	left:0;
+	bottom:-89px;
+	left:0;*/
 }
 
 menu, ol, ul{
@@ -31,4 +34,8 @@ a{
 
 img{
 	display : block
+}
+
+h3{
+	margin : 0px;
 }

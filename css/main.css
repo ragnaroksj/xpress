@@ -1,4 +1,5 @@
 @import url("global/pure.css");
 @import url("global/fonts/fonts.css");
 @import url("global/spirits/spirits.css");
+@import url("global/jquery.jscrollpane.css");
 @import url("app.css");

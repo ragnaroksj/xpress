@@ -1,5 +1,5 @@
 {
-	 "20140707": {
+	"20140707": {
 	 	"title" : "Southwest Dream",
 	 	"excerpt" : "Milkyway, Meteor, colorful rock,endless road, etc, here is southwest. It's ever in your dream. Come with me to see it's fantasy.",
 	 	"bgImage" : "wp-content/themes/xpress/res/images/homeblocks/headline/pa.jpg",
@@ -9,7 +9,11 @@
 	 		"wp-content/themes/xpress/res/images/homeblocks/ny/mh1.jpg",
 	 		"wp-content/themes/xpress/res/images/homeblocks/ny/mh1.jpg"
 	 	]
+	}
 
+	"20150615" : {
+		"title" : "Neverland",
+		"excerpt" : "There is a land which is always in my dream. Now here we are!"
 	}
 	
 }

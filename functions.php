@@ -294,7 +294,52 @@
 	add_action("add_meta_boxes","new_geo_info");
 	add_action("save_post", "save_geo_info");
 	
+	function music_info(){
+		add_meta_box(
+			'music_info_section',
+			'music_id',
+			'music_custom_box',
+			'post'
+		);
+	}
+
+	function music_custom_box( $post ){
+		global $wpdb;
+		wp_nonce_field( plugin_basename(__FILE__),'music_info_noncename');
+		$data = $wpdb->get_row( $wpdb->prepare("SELECT music_id FROM $wpdb->posts WHERE ID=%d", $post->ID) );
+		echo '<label for="music_id">music id</label>';
+		echo '<input type="text" id="music_id_field" name="music_id_field" value="'.$data->music_id.'" />';
+	}
 	
+	function save_music_info( $post_id ){
+		if( defined( 'DOING_AUTOSAVE' && DOING_AUTOSAVE ) ){
+			return;
+		}
+		
+		if( !wp_verify_nonce( $_POST['music_info_noncename'], plugin_basename( __FILE__ ) ) ){
+			return;
+		}
+		
+		if( 'post' == $_POST['post_type'] ){
+			if( !current_user_can( 'edit_post', $post_id ) ){
+				return;
+			}
+		}
+		
+		$music_id = $_POST['music_id_field'];
+		
+		global $wpdb;
+		$wpdb->update( 
+				"$wpdb->posts",
+				array( 'music_id' => $music_id),
+				array( 'ID' => $post_id ),
+				array( '%s' ),
+				array( '%d' ) 
+		);
+	}
+	add_action("add_meta_boxes","music_info");
+	add_action("save_post","save_music_info");
+
 	//Enable ajax handler
 	function ajax_posts(){
 		wp_localize_script( 'main', 'main', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
@@ -315,10 +360,38 @@
 		echo "Thank you."; 
 		exit();
 	}
-	add_action("wp_ajax_get_ajax_post_data", "get_ajax_post_data");
+
+	function get_subcategories($cat_id){
+		
+		$args = array(
+			'parent'	=>	$cat_id,
+			'orderby'	=>	'id',
+			'order'		=>	'DESC',
+			'hide_empty'=>	'0'
+		);
+		return get_categories( $args );
+	}
+
+	function get_post_category_asclass($post_id){
+		$category_string = "";
+		$categories = get_the_category( $post_id );
+		foreach( $categories as $category ){
+			$category_string .= $category->cat_ID.",";
+		}
+		return $category_string;
+	}
+
+	function load_content(){
+		$post = get_post($_POST["id"]);
+		echo (json_encode($post));
+		die();
+	}
+
 	add_action("wp_ajax_get_ajax_post_data", "get_ajax_post_data");
 	add_action("wp_ajax_nopriv_send_mail","send_mail");
 	add_action("wp_ajax_send_mail","send_mail");
+	add_action("wp_ajax_load_content","load_content");
+	add_action("wp_ajax_nopriv_load_content", "load_content");
 
 	add_theme_support('category-thumbnails');
 ?>

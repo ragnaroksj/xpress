@@ -1,9 +1,0 @@
-define([
-	"jquery",
-	"handlebar"
-  ],
-	function($){
-  		
-		
-});
-  	

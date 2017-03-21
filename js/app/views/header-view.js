@@ -18,7 +18,8 @@ define([
           animOut : { opacity : 0},
           animIn : { opacity : 1}  
         });
-        
+
+       
         $("#sub-nav ul.photography-nav a").each(function(){
           var _originalLinks = $(this).attr("href").split("/");
           var _newLink = $(this).attr("href") 
@@ -28,7 +29,7 @@ define([
         });
 
          $("#sub-nav ul.video-nav li").each(function(){
-          var _tempLink = $("header#header h1 a").attr("href") + "video/#/video/";
+          var _tempLink = $("header#header a").attr("href") + "video/#/video/";
           var _newMainLink = _tempLink + "0";
           var _newLink =  _tempLink + $("#sub-nav ul.video-nav li").index(this);
          
@@ -43,6 +44,13 @@ define([
             var slideIndex = $(this).parent("li").parent().children()
                                 .index($(this).parent("li"));
             $("#sub-nav").cycle(slideIndex);
+
+            if( $(".sub-nav-bg").find("img").data("index") != slideIndex ){
+              $(".sub-nav-bg").prepend("<img class='slide-"+slideIndex+"' data-index='"+slideIndex+"' src='"+$("#sub-nav").children().children().eq(slideIndex).data("bg")+"' />");
+              $(".sub-nav-bg img").eq(1).fadeOut(function(){  
+                $(this).remove();
+              })
+            }            
           });
         });
 
@@ -58,9 +66,11 @@ define([
           mouseover : function(){
             //use stop and delay to do debounce
             $("#sub-nav").stop(true,true).delay(500).slideDown(400,"jswing");
+            $(".sub-nav-bg").stop(true,true).delay(500).slideDown(400,"jswing");
           },
           mouseleave : function(){
             $("#sub-nav").stop(true,true).delay(500).slideUp(400,"jswing");
+            $(".sub-nav-bg").stop(true,true).delay(500).slideUp(400,"jswing");
           }
         });
       }

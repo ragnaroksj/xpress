@@ -1,6 +1,7 @@
 define([
-	"jquery"
-	], function($){
+	"jquery",
+	"spin"
+	], function($, Spinner){
 
 	"use strict";
 
@@ -31,16 +32,18 @@ define([
 		},
 
 		preloadImage : function(imgUrl,orderId){
+			var spinner = new Spinner().spin();
+			$("body").append(spinner.el);
 			var image = new Image();
 			image.src = imgUrl;
 			image.onload = function(){
 				$(".overlayBg").animate({
 					"opacity":"0.8"
 				},function(){
+					spinner.stop();
 					$thisObj.contentShown(imgUrl,orderId);	
 					$(window).resize($thisObj.setPostion).trigger("resize");
 				});
-				
 			}
 		},
 
@@ -85,6 +88,15 @@ define([
 				"top", ($(window).height()-$(".img").height())*0.5+"px"
 			);
 			$(".img").fadeIn(500);
+			$(".close").css({
+				"top" : ($(".img").position().top - $(".close").height()/2)+"px",
+				"left": ($(".img").position().left + $(".img").width()-$(".close").width()/2)+"px"
+			}).on("transitionend webkitTransitionEnd",function(){
+				$(this).show();
+			});
+			setTimeout(function(){
+				$(".close").show();
+			},500);
 		},
 
 		eventAdd : function(){

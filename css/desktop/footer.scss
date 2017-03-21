@@ -1,7 +1,12 @@
 #footer{
 	background : $dark;
-	height : 89px;
+	/*height : 89px;*/
 	text-align : center;
+	position: relative;
+	z-index: 9;
 	color : $grey;
 	font-size : 15px;
+	small{
+		line-height : 89px;
+	}
 }

@@ -60,7 +60,7 @@ module.exports = function(grunt){
         sass : {
             compile : {
                 options : {
-                    //sourcemap : true
+                    /*sourcemap : true*/
                 },
                 files : {
                     "../css/app.css" : "../css/app.scss"                

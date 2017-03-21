@@ -7,7 +7,7 @@ require.config({
   baseUrl : '/wp-content/themes/xpress/js/app',
   paths : {
       'qunit' : 'lib/qunit',
-      'jquery' : 'lib/jquery-1.11.0.min',
+      'jquery' : 'lib/jquery-1.11.0.min'
   },
 
   shim : {
@@ -24,11 +24,12 @@ require.config({
 
 require([
   "jquery",
-  "qtest/test",
+  /*test files*/
+  "qtest/extdTest",
   "qunit"
-], function($,Test) {
+], function($,extdTest) {
   
-  Test.run();
+  extdTest.run();
   
   QUnit.load();
   QUnit.start();

@@ -1,3 +1,7 @@
+.story-open{
+	overflow : hidden;
+}
+
 #sub-nav{
 	.video-nav {
 		li{
@@ -43,7 +47,7 @@
 		li{
 			float : none;
 			text-align : right;
-			right: -28px;
+			padding: 5px 0;
 			a{
 				color : $darkgrey;
 				font-family : HelveticaNeueLTPro35Thin;
@@ -55,9 +59,7 @@
 				transition : all 0.4s;
 				&:hover{
 					color : $orangeyellow;
-					padding-right : 33px;
 					transition : all 0.4s;
-					
 				}
 			}
 		}
@@ -82,12 +84,14 @@
 	padding-top : 40px;
 	&.photography{
 		padding-top : 20px;
+		padding-bottom : 40px;
 		img{
 			cursor :pointer;
 			margin-top : 20px;
 		}
 	}
 	&.video{
+		margin-bottom : 40px;
 		iframe{
 			opacity : 0;
 			transition : opacity, 2s;
@@ -202,11 +206,11 @@
 		font-family : HelveticaNeueLTPro35Thin;
 		text-align : center;
 		padding:0px;
-		height : 0px;
 		overflow : hidden;
-		/*background : rgba(225,206,159,0.0);*/
-		background : #fff;
+		background : #333;
 		transition : all 1.8s;
+		color : $orangeyellow;
+		background : url("../images/default/dark_brick_wall.png");
 		&.onair{
 			color : #fff !important;
 			a{
@@ -218,6 +222,9 @@
 					opacity : 1;
 				}
 			}
+		}
+		& > *{
+			text-shadow : 1px 1px 1px #000;
 		}
 		h3{
 			font-size : 30px;
@@ -245,24 +252,120 @@
 					margin:0 10px;
 					&.d{
 						font-size : 60px;
-						color : #000;
+						color : #ccc;
+						box-shadow : 0 0 6px 1px #000 inset;
+						line-height : 100px;
+						margin-bottom : 30px;
+						padding : 15px 35px 0;
 					}
 				}
 			}
 		}
 		p{
-			 margin-bottom : 30px;
+			 margin-bottom : 80px;
+		}
+		.headline-movie{
+			height: 480px;
+			overflow: hidden;
+			position: relative;
+			z-index: 9;
+			video{
+				width: 100%;
+				transform: translateY(-15%);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
+		}
+	}
+	.story{
+		//background : url("../images/default/brickwall.png");
+		//box-shadow : 0 0 12px -5px #000;
+		background: #fff;
+		position: relative;
+		z-index: 9;
+		ul{
+			li{
+				padding : 20px;
+				float : left;
+				color : #000;
+				list-style : none;
+				cursor : pointer;
+				text-transform : uppercase;
+				//text-shadow : 0 1px 1px #000;
+				&:hover{
+					color : $orangeyellow;
+				}
+				&.active-tab{
+					color : $orangeyellow;
+					background: none;
+					//box-shadow : 0 -3px 4px -2px #000000;
+					//background : url("../images/default/brickwall.png");
+				}
+			}
+		} 
+		.story-content{
+			.story-listitem-container{
+				//box-shadow : 0 0 7px 0 #000;
+				padding : 50px 0 0;
+				border-top: 1px solid #ccc;
+				//background : url("../images/default/brickwall.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+				&:nth-child(odd){
+					
+				}
+				/*.story-telling{
+					display : none;
+					padding-top : 20px;
+					padding-bottom : 50px;
+					box-shadow : 0 0 6px -2px #000 inset;
+				}*/
+				.story-listitem{
+					padding-bottom : 50px;
+					& > *{
+						float : left;
+					}
+					.story-item-img{
+						box-shadow : 0 0 2px 0 #000;
+						height : 200px;
+						max-width : 300px;
+						width : 100%;
+					}
+					.story-item-title{
+						margin-bottom : 20px;
+						text-transform : uppercase;
+						//text-shadow : 0 1px 1px #000;
+					}
+					.story-item-detial{
+						margin-left : 30px;
+						height : 200px;
+						min-width : 320px;
+						position : relative;
+						width : 50%;
+						max-width : 550px;
+					}
+					.story-item-excerpt{
+						box-shadow : 0 0 5px -4px #000 inset;
+						height : 70px;
+						padding : 20px;
+					}
+				}
+			}
+			.pure-button{
+				position : absolute;
+				bottom : 0px;
+			}
 		}
 	}
 	.homeblocks{
 		background : none;
 		position : relative;
-		top : -1px;
 		transition : all 1.5s;
+		border-top : 1px solid #ccc;
 		ul{
 			text-align : center;
 			display : block;
-			background : rgba(225,206,159,0);
+			background : rgba(0,0,0,1);
 			transition : all 1.5s;
 			position : relative;
 			z-index : 1;
@@ -276,11 +379,11 @@
 				text-align : center;
 				text-transform : capitalize;
 				background : #efefef;
-				border-radius : 7px 7px 0 0;
 				&.active{
 					background : #fff;
 					border : 1px solid #ccc;
 					border-bottom : 1px solid #fff;
+					border-top : none;
 				}
 			}
 		}
@@ -370,4 +473,57 @@
 			}	
 		}
 	}
+
+	.story-telling{
+		position : fixed;
+		height : 100%;
+		background : rgba(255,255,255,1);
+		left : 0px;
+		top : 0px;
+		display : none;
+		color : #000;
+		z-index : 9;
+		.story-top{
+			width : 100%;
+			font-size : 60px;
+			background : #000;
+			padding : 40px 60px;
+			font-family : "Helvetica Neue";
+			font-weight : 100;
+			letter-spacing : 1px;
+			box-sizing : border-box;
+			color : #fff;
+			.story-header{
+				float : left;
+			}
+		}
+		.story-player{
+			float : left;
+		}
+		.close-btn{
+			float : right;
+			cursor : pointer;
+			line-height : 70px;
+		}
+		.story-telling-gallery{
+			clear : both;
+		}
+		.story-telling-content{
+			line-height : 30px;
+			width : 100% !important;
+			height : 600px;
+			overflow : auto;
+			.jspContainer{
+				width : 100% !important;
+			}
+			.story-telling-padding{
+				padding : 40px 60px;
+			}
+		}
+	}
+}
+
+.chart rect{
+	stroke : white;
+	fill : steelblue;
 }

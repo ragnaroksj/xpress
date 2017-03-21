@@ -66,7 +66,7 @@ define([
                     if ( Ajaxy.options.debug ) window.console.debug('$.Ajaxy.Controllers._generic.response', [this,arguments], data, state);
                     // Title
                     var title = data.title||false; // if we have a title in the response JSON
-                    if ( !title && this.state||false ) title = 'jQuery Ajaxy - '+this.state; // if not use the state as the title
+                    //if ( !title && this.state||false ) title = 'jQuery Ajaxy - '+this.state; // if not use the state as the title
                     if ( title ) document.title = title; // if we have a new title use it
                     // Loaded
                     $body.removeClass('loading');

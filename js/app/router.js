@@ -14,7 +14,7 @@ define([
         "video/:id" : "reloadVideo",
         "filter/:key" : "filterMap",
         "wp-content/themes/xpress/pagetemplates/contact.php" : "contactRender",
-        "wp-content/themes/xpress/pagetemplates/experiment.html" : "experimentLoad",
+        "wp-content/themes/xpress/pagetemplates/lab.html" : "labLoad",
         "*action" : "defaultRouter"
       },
 
@@ -42,8 +42,8 @@ define([
         
       },
 
-      experimentLoad : function(){
-        require( ["pages/blog/experiment"] );
+      labLoad : function(){
+        require( ["pages/blog/lab"] );
       },
 
       contactRender : function(){

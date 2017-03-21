@@ -14,6 +14,9 @@ require.config({
       "text" : 'lib/text',
       "async" : 'lib/async',
       "jquery" : "lib/jquery-1.11.0.min",
+      /*experiment project*/
+      "jst" : "modules/jst/inherit",
+      /********************/
       "jquery.easing" : "lib/jquery.easing",
       "jquery.transit" : "lib/jquery.transit",
       "jquery.mousewheel" : "lib/jquery.mousewheel.min",
@@ -26,6 +29,7 @@ require.config({
       "jquery.cycle" : "lib/jquery.cycle",
       "jquery.ajaxy" : "lib/jquery.ajaxy",
       "jquery.countdown" : "lib/jquery.countdown",
+      "jquery.zoom" : "lib/jquery.zoom",
       "spin" : "lib/spin",
       "modernizr" : "lib/modernizr-2.0.6",
       "maplace" : "lib/maplace",
@@ -87,10 +91,12 @@ require.config({
     'jquery.countdown' : {
       deps : ["jquery", "lib/jquery.countdown.plugin"]
     },
+    'jquery.zoom' : {
+      deps : ["jquery"]
+    },
     'maplace' : {
       //deps : ["jquery", "async!http://maps.google.com/maps/api/js?key=AIzaSyCEAexlU6R7cWMKaxHF7maBdvVivPMQSgs&sensor=false"]
       deps : ["jquery", "googleMap"]
-   
     },
     'jquery.imageGallery' : {
       deps : ["jquery"]
@@ -108,6 +114,7 @@ require.config({
 //define project namespace 
 var RSJ = (function (RSJ) { return RSJ; } (RSJ || {}));
 window.RSJ = RSJ;
+window.RSJ.fullurl = location.protocol + "//" + window.location.hostname;
 
 /* Console fallback for ie8 */
 window.console = window.console || {"log":function(){}};
@@ -116,6 +123,7 @@ window.console = window.console || {"log":function(){}};
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   RSJ.mobile = true;
 }
+
 
 require([
   /*require libs*/
@@ -126,7 +134,7 @@ require([
   "jquery.easing",
   "jquery.transit",
   "jquery.imagesloaded",
-  "jquery.jscrollpane",
+  //"jquery.jscrollpane",
   "jquery.hoverflow",
   "jquery.cycle",
   "jquery.pubsub",
@@ -135,6 +143,8 @@ require([
   "vimeoSimpleApi"
 ], function (pace,$) {
 
+    var n = Math.floor(2*Math.random())+1;
+    $(".pace-bg-img").addClass("pace-bg-img-"+n);
     pace.on("start",function(){
       $(".pace-bg-img").addClass("pacebg-active").removeClass("pacebg-inactive");
     });

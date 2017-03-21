@@ -1,53 +1,51 @@
 #main-nav ul li{
-	display : inline-block;
+	display: inline-block;
 	a{
 		@include n-padding(0,2.5,0,2.5);
 		@extend .navHel;
-		display : block;
-		height : 89px;
-		line-height : 89px;
-		color : $grey;
+		display: block;
+		height: 89px;
+		line-height: 89px;
+		color: $grey;
 		&:hover{
-			color : $orangeyellow;
+			color: $orangeyellow;
 		}
-	}
-	&:last-child a{
-		padding-right : 0px;
 	}
 }
 
 
 #sub-nav{
-	display : none;
-	height : 220px;
-	border-top : 1px solid #ccc;
+	display: none;
+	height: 220px;
+	position: relative;
+	z-index: 99;
 	div{
-		height : 220px;
-		width : 100% !important;
+		height: 220px;
+		width: 100% !important;
 	}
 	ul{
 		@extend .standard-page-layout;
-		display : block;
-		margin-top : 40px;
-		padding-left : 20px;
+		display: block;
+		margin-top: 40px;
+		padding-left: 20px;
 		li{
-			position : relative;
-			float : left;
+			position: relative;
+			float: left;
 			&:last-child{
-				margin-right : 0px;
+				margin-right: 0px;
 			}
 			a{
-				position : absolute;
-				width : 140px;
-				height : 140px;
-				left : 0px;
-				top : 0px;
-				text-align : center;
+				position: absolute;
+				width: 140px;
+				height: 140px;
+				left: 0px;
+				top: 0px;
+				text-align: center;
 				line-height: 140px;
-				bottom : 0px;
-				font-family : "jenna_sueregular";
-				color : #fff;
-				font-size : 30px;
+				bottom: 0px;
+				font-family: "jenna_sueregular";
+				color: #fff;
+				font-size: 30px;
 			}
 		}
 	}
@@ -57,8 +55,42 @@
 }
 
 #top-header{
-	max-width : 940px;
+	background: #000;
+	position: relative;
+	z-index: 99;
 	#header{
-		font-family : "moltorsregular";
+		font-family: "moltorsregular";
+		background: #000;
+		&:hover{
+			//box-shadow: 0px 0px 4px -2px #000 inset;
+			//background: #fff;
+		}
+	}
+}
+
+.sub-nav-bg{
+	display: none;
+	top: 89px;
+	height: 220px;
+	opacity: 0.6;
+	position: absolute;
+	overflow: hidden;
+	z-index: 99;
+	img{
+		width: 100%;
+		position: absolute;
+		&.slide-0{
+			top: -30px;
+		}
+		&.slide-1{
+			top: -140px;
+		}
+		&.slide-2{
+			top: -160px;
+		}
+		&.slide-3{
+			top: -310px;
+		}
+
 	}
 }
